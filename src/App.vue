@@ -1,20 +1,41 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="header">
+      <router-link to="/"
+        ><img src="./assets/site-logo.png" class="site-logo"
+      /></router-link>
+      <HeaderSlider />
     </div>
     <router-view />
+    <!-- <div class="back-to-top-todo"></div> -->
+    <Footer />
   </div>
 </template>
 
+<script>
+import HeaderSlider from "@/components/header-slider.vue";
+import Footer from "@/components/footer.vue";
+
+export default {
+  components: {
+    HeaderSlider,
+    Footer
+  }
+};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+* {
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro",
+    "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック",
+    "MS PGothic", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 #nav {
@@ -27,6 +48,14 @@
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+}
+
+#header {
+  .site-logo {
+    display: block;
+    margin: auto;
+    padding: 26px;
   }
 }
 </style>
